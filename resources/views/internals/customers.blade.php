@@ -1,8 +1,9 @@
 @extends('layout')
 
-@section('content')
-  <h1>Customers</h1>
+@section('title', 'Customer List')
 
+@section('content')
+  <h1>Customer List</h1>
   <form action="customers" method="POST">
     <div class="form-group">
       <label for="inputName" class="col-form-label">Name</label>
