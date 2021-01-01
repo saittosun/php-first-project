@@ -33,5 +33,6 @@ Route::view('about', 'about');
 //     ]);
 // });
 
-Route::get('customers', 'App\Http\Controllers\CustomersController@list');
+Route::get('customers', 'App\Http\Controllers\CustomersController@index');
+Route::get('customers/create', 'App\Http\Controllers\CustomersController@create');
 Route::post('customers', 'App\Http\Controllers\CustomersController@store');
