@@ -31,6 +31,15 @@
         <option value="0">Inactive</option>
       </select>
     </div>
+
+    <div class="form-group">
+      <label for="company_id" class="col-form-label">Status</label>
+      <select name="company_id" id="company_id" class="custom-select custom-select-sm">
+        @foreach($companies as $company)
+          <option value="{{$company->id}}">{{$company->name}}</option>
+        @endforeach
+      </select>
+    </div>
     <button type="submit" class="btn btn-primary my-3">Add Customer</button>
 
     @csrf
@@ -41,7 +50,7 @@
       <h3>Active Customers</h3> 
       <ul>
           @foreach ($activeCustomers as $activeCustomer)
-            <li>{{ $activeCustomer->name }} <span class="text-muted">({{$activeCustomer->email}})</span></li>
+            <li>{{ $activeCustomer->name }} <span class="text-muted">({{$activeCustomer->email}}) ({{$activeCustomer->company->name}})</span></li>
           @endforeach
       </ul>
     </div>
@@ -49,9 +58,21 @@
       <h3>In-Active Customers</h3> 
       <ul>
           @foreach ($inactiveCustomers as $inactiveCustomer)
-            <li>{{ $inactiveCustomer->name }} <span class="text-muted">({{$inactiveCustomer->email}})</span></li>
+            <li>{{ $inactiveCustomer->name }} <span class="text-muted">({{$inactiveCustomer->email}}) ({{$inactiveCustomer->company->name}})</span></li>
           @endforeach
       </ul>
     </div>
-  </divC
+  </div>
+  <div class="row">
+    <div class="col-12">
+      @foreach($companies as $company)
+        <h3>{{$company->name}}</h3>
+        <ul>
+          @foreach($company->customers as $customer)
+            <li>{{$customer->name}}</li>
+          @endforeach
+        </ul>
+      @endforeach
+    </div>
+  </div>
 @endsection
