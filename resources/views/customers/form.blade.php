@@ -20,8 +20,9 @@
   <label for="active" class="col-form-label">Status</label>
   <select name="active" id="active" class="custom-select custom-select-sm">
     <option value="" disabled>Select custumer status</option>
-    <option value="1" {{$customer->active == 'Active' ? 'selected' : ''}} >Active</option>
-    <option value="0" {{$customer->active == 'Inactive' ? 'selected' : ''}} >Inactive</option>
+    @foreach($customer->activeOptions() as $activeOptionKey => $activeOptionValue)
+    <option value="{{$activeOptionKey}}" {{$customer->active == $activeOptionValue ? 'selected' : ''}} >{{$activeOptionValue}}</option>
+    @endforeach  
   </select>
 </div>
 
@@ -29,7 +30,7 @@
   <label for="company_id" class="col-form-label">Status</label>
   <select name="company_id" id="company_id" class="custom-select custom-select-sm">
     @foreach($companies as $company)
-      <option value="{{$company->id}}" {{$company->id == $customer->company_id ? 'selected' : ''}}>{{$company->name}}</option>
+      <option value="{{$company->id}}" {{ $company->id == $customer->company_id ? 'selected' : ''}}>{{$company->name}}</option>
     @endforeach
   </select>
 </div>
