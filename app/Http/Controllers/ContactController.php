@@ -23,6 +23,8 @@ class ContactController extends Controller
 
         Mail::to('test@test.com')->send(new ContactMail($data));
 
-        return redirect('contact');
+        // session()->flash('message', 'Thanks for your message. We\'ll be in touch.');
+
+        return redirect('contact')->with('message', 'Thanks for your message. We\'ll be in touch.');
     }
 }
