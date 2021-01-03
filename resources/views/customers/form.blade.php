@@ -1,21 +1,4 @@
-<div class="form-group">
-  <label for="inputName" class="col-form-label">Name</label>
-  <div class="input-group">
-    <input type="text" name="name" class="form-control" id="inputName" value="{{old('name') ?? $customer->name}}">
-  </div>
-  <div style="color: red">
-    {{ $errors->first('name')}}
-  </div>
-</div>
-<div class="form-group">
-  <label for="inputMail" class="col-form-label">Email</label>    
-  <div class="input-group">
-    <input type="text" name="email" class="form-control" id="inputMail" value="{{old('email') ?? $customer->email}}">
-  </div>
-  <div style="color: red">
-    {{ $errors->first('email')}}
-  </div>
-</div>
+
 <div class="form-group">
   <label for="active" class="col-form-label">Status</label>
   <select name="active" id="active" class="custom-select custom-select-sm">
